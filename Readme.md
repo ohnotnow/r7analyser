@@ -1,4 +1,4 @@
-# README.md for Rapid7 CSV Analysis Tool using OpenAI
+# Rapid7 CSV Analysis Tool
 
 ## Overview
 This Python script is designed to assist users in analyzing Rapid7 CSV exports by leveraging the OpenAI API. It helps in understanding and querying the data in these CSV documents, focusing on computer hosts and the CVEs (Common Vulnerabilities and Exposures) present on them. The script uses an AI assistant to provide detailed, markdown-formatted responses to user queries about the data.
@@ -12,14 +12,14 @@ This Python script is designed to assist users in analyzing Rapid7 CSV exports b
 
 1. **Clone the Repository:**
    ```bash
-   git clone [repository-url]
-   cd [repository-directory]
+   git clone https://github.com/ohnotnow/r7analyser.git
+   cd r7analyser
    ```
 
 2. **Install Dependencies:**
    Use pip to install the required Python libraries.
    ```bash
-   pip install openai yaspin
+   pip install -r requirements.txt
    ```
 
 ## Usage
@@ -33,7 +33,7 @@ This Python script is designed to assist users in analyzing Rapid7 CSV exports b
 2. **Running the Script:**
    Use the following command to run the script. Replace `[csv_file_name]` with the name of your Rapid7 CSV export file.
    ```bash
-   python script_name.py [csv_file_name]
+   python main.py [full_path_to_csv_file]
    ```
 
 ### Flags
@@ -53,7 +53,3 @@ Contributions to the project are welcome. Please ensure that you update tests as
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
-
----
-
-Note: Replace `[repository-url]`, `[repository-directory]`, and `script_name.py` with your specific repository URL, directory name, and Python script name, respectively. The usage instructions assume basic familiarity with command-line operations and environment variable settings.
