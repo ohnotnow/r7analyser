@@ -1,4 +1,5 @@
 import os
+import sys
 import time
 import argparse
 from openai import OpenAI
@@ -53,12 +54,20 @@ def main():
     if not args.csv:
         print("You must provide a rapid7 csv file.")
         exit(1)
+    if args.csv.startswith("~"):
+        args.csv = os.path.expanduser(args.csv)
+    if not os.path.exists(args.csv):
+        print(f"File {args.csv} does not exist.")
+        exit(1)
     client = OpenAI()
     file = client.files.create(
         file=open(args.csv, "rb"),
         purpose="assistants"
     )
-    thread = client.beta.threads.create()
+    if args.thread:
+        thread = client.beta.threads.retrieve(args.thread)
+    else:
+        thread = client.beta.threads.create()
     assistant_id = None
     if args.assistant:
         assistant_id = args.assistant
@@ -78,6 +87,10 @@ def main():
         else:
             print("Cannot run without an assistant.  Exiting.")
             exit(1)
+
+    invocation = sys.argv[0]
+    print(f"\nIf you need to run this again, you can use the following invocation:\n\n{invocation} {args.csv} --thread {thread.id} --assistant {assistant_id}\n\n")
+
     run = create_run(
         client,
         thread,
