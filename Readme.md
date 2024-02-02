@@ -17,7 +17,7 @@ This Python script is designed to assist users in analyzing Rapid7 CSV exports b
    ```
 
 2. **Install Dependencies:**
-   Use pip to install the required Python libraries.
+   Use pip to install the required Python libraries. (Note: depending on your OS/setup this might be `pip3` and `python3`)
    ```bash
    pip install -r requirements.txt
    ```
