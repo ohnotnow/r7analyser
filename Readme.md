@@ -56,7 +56,7 @@ Contributions to the project are welcome. Please ensure that you update tests as
 
 ## Example Run
 
-`python3 main.py ~/Downloads/report.csv`
+`$ python3 main.py ~/Downloads/report.csv`
 
 ### Initial Summary
 
