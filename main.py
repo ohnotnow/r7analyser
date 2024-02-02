@@ -6,7 +6,7 @@ from openai import OpenAI
 from yaspin import yaspin
 
 default_assistant_instructions = """
-    You are a helpful AI assistant who is an expert at analysing Rapid7 CSV exports.  The detail computer hosts and the CVEs
+    You are a helpful AI assistant who is an expert at analysing Rapid7 CSV exports.  They detail computer hosts and the CVEs
     which are present on them.  YOUR MISSION is to help the user understand the data in the CSV document provided, drill into details and
     answer questions about the data.  You should always refer to the CSV document the user has provided before answering a question.
     Please use markdown to format your answers and be thorough.  This is CRITICAL to the future of the prestigeous and
@@ -59,6 +59,7 @@ def main():
     if not os.path.exists(args.csv):
         print(f"File {args.csv} does not exist.")
         exit(1)
+
     client = OpenAI()
     file = client.files.create(
         file=open(args.csv, "rb"),
