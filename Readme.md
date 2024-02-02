@@ -31,9 +31,9 @@ This Python script is designed to assist users in analyzing Rapid7 CSV exports b
    ```
 
 2. **Running the Script:**
-   Use the following command to run the script. Replace `[csv_file_name]` with the name of your Rapid7 CSV export file.
+   Use the following command to run the script. Replace `[path_to_csv_file]` with the name of your Rapid7 CSV export file.
    ```bash
-   python main.py [full_path_to_csv_file]
+   python main.py [path_to_csv_file]
    ```
 
 ### Flags
